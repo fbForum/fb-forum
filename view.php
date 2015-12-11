@@ -16,13 +16,9 @@
   			die('MariaDB 連線失敗' . mysql_error());
   	  }
 
-  $sql = "SELECT content FROM topic WHERE id='$id' limit 1";
-  $result = mysql_query($sql);
-  $content = mysql_fetch_object($result);
-
-  $sql = "SELECT author FROM topic WHERE id='$id' limit 1";
-  $result = mysql_query($sql);
-  $author = mysql_fetch_object($result);
+    $subject = $mysqli->query("SELECT subject FROM topic WHERE id = '$id' ")->fetch_object()->subject;  
+    $content = $mysqli->query("SELECT content FROM topic WHERE id = '$id' ")->fetch_object()->content;
+    $author = $mysqli->query("SELECT author FROM topic WHERE id = '$id' ")->fetch_object()->author;
 
   mysql_close($conn);
 
@@ -44,7 +40,7 @@
 	<thead>
 		<tr>
 			<th bgcolor="#275187" scope="col">
-			<h1><font color="white">Topic</font></h1>
+			<h1><font color="white"><?php echo $subject ?></font></h1>
       <button onclick="alert('Hello world!')" type="button">新主題</button>
 			</th>
 		</tr>
