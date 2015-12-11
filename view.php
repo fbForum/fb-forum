@@ -1,27 +1,35 @@
 <?
   $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";  //Getting the URI (not URL) for the facebook comments location
 
-  $id = $_GET['id'];
+  $id = $_GET['id']; // Get the post id from URL attb "id"
 
+  $servername = "localhost";
+  $username = "username";
+  $password = "password";
+  $dbname = "dbname";
 
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  // Check connection
+  if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+  }
 
-  $dbhost = 'localhost';
-  $dbuser = 'username';
-  $dbpass = 'password';
-  $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-  mysql_select_db('project');
+  $sql = "SELECT * FROM 'topic' WHERE id = $id ";
+  $result = mysqli_query($conn, $sql);
 
-  if(! $conn )
-  		{
-  			die('MariaDB 連線失敗' . mysql_error());
-  	  }
+  if (mysqli_num_rows($result) > 0) {
+      // output data of each row
+      while($row = mysqli_fetch_assoc($result)) {
+          $author = $row["author"];
+          $subject = $row["subject"];
+          $content = $row["content"];
+      }
+  } else {
+      echo "0 results";
+  }
 
-    $subject = $mysqli->query("SELECT subject FROM topic WHERE id = '$id' ")->fetch_object()->subject;  
-    $content = $mysqli->query("SELECT content FROM topic WHERE id = '$id' ")->fetch_object()->content;
-    $author = $mysqli->query("SELECT author FROM topic WHERE id = '$id' ")->fetch_object()->author;
-
-  mysql_close($conn);
-
+  mysqli_close($conn);
 ?>
 
 <html>
@@ -40,7 +48,7 @@
 	<thead>
 		<tr>
 			<th bgcolor="#275187" scope="col">
-			<h1><font color="white"><?php echo $subject ?></font></h1>
+			<h1><font color="white">Topic</font></h1>
       <button onclick="alert('Hello world!')" type="button">新主題</button>
 			</th>
 		</tr>
