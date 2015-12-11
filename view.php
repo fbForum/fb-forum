@@ -20,6 +20,10 @@
   $result = mysql_query($sql);
   $content = mysql_fetch_object($result);
 
+  $sql = "SELECT author FROM topic WHERE id='$id' limit 1";
+  $result = mysql_query($sql);
+  $author = mysql_fetch_object($result);
+
   mysql_close($conn);
 
 ?>
@@ -47,9 +51,9 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td> <p>This is the paragraph</p>
+			<td> <p><?php echo $content ?></p>
 
-            <blockquote>author name</blockquote>
+            <blockquote><?php echo $author ?></blockquote>
 
             <p>Topic Id : <?php echo $id ?></p>
       </td>
