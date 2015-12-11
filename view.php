@@ -1,5 +1,27 @@
 <?
   $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";  //Getting the URI (not URL) for the facebook comments location
+
+  $id = $_GET['id'];
+
+
+
+  $dbhost = 'localhost';
+  $dbuser = 'username';
+  $dbpass = 'password';
+  $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+  mysql_select_db('project');
+
+  if(! $conn )
+  		{
+  			die('MariaDB 連線失敗' . mysql_error());
+  	  }
+
+  $sql = "SELECT content FROM topic WHERE id='$id' limit 1";
+  $result = mysql_query($sql);
+  $content = mysql_fetch_object($result);
+
+  mysql_close($conn);
+
 ?>
 
 <html>
@@ -25,7 +47,12 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>&nbsp;</td>
+			<td> <p>This is the paragraph</p>
+
+            <blockquote>author name</blockquote>
+
+            <p>Topic Id : <?php echo $id ?></p>
+      </td>
 		</tr>
 		<tr>
 			<td><div class="fb-comments" data-href="<?php echo $actual_link ?>" data-width="100%" data-numposts="50" data-order-by="time"></div></td>
