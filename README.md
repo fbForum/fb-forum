@@ -1,5 +1,8 @@
 # fb-forum
-*****A truly facebook integrated forum.****
+*****A truly facebook integrated forum.*****
+This php scripts is used to powerup http://www.reddithk.com
+We proudly open sources for you to improved the forum usability and maybe new function!
+
 
 > What is fb-forum?
 
