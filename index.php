@@ -14,7 +14,8 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?php
+			<td>
+				<?php
 
       $servername = "localhost";
       $username = "username";
@@ -32,7 +33,7 @@
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
-          echo "<table style="border:1px solid SkyBlue" ><tr><th>題目</th><th>發起人</th></tr>";
+          echo "<table><tr><th>題目</th><th>發起人</th></tr>";
           // output data of each row
           while($row = $result->fetch_assoc()) {
               echo "<tr><td><a href=view.php?id=".$row["id"].">".$row["subject"]."</a></td><td>".$row["author"]." </td></tr>";
