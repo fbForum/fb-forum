@@ -24,8 +24,8 @@
 				die('發貼失敗...Sorry... ' . mysql_error());
 		   }
 
-		echo "發貼成功！";
-		echo "<meta http-equiv=\"refresh\" content=\"1\"; url=\"index.php\" />";
+			 echo "<html><body><h3>發貼成功！</h3>";
+			 echo "<form action=\"index.php\"> <input type=\"submit\" value=\"主頁\"></form></body></html>";
 
 		mysql_close($conn);
 
