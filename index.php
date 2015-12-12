@@ -1,17 +1,6 @@
-<?
-  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";  //Getting the URI (not URL) for the facebook comments location
-?>
-
 <html>
 <body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 
 <table align="center" border="1" cellpadding="0" cellspacing="0" style="width: 800px;">
@@ -25,7 +14,36 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>&nbsp;</td>
+			<td><?php
+
+      $servername = "localhost";
+      $username = "username";
+      $password = "pasword";
+      $dbname = "dbname";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT id,author,subject FROM topic";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          echo "<table style="border:1px solid SkyBlue" ><tr><th>題目</th><th>發起人</th></tr>";
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td><a href=view.php?id=".$row["id"].">".$row["subject"]."</a></td><td>".$row["author"]." </td></tr>";
+          }
+          echo "</table>";
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
+      ?>
+</td>
 		</tr>
 		<tr>
 			<td><div class="fb-comments" data-href="<?php echo $actual_link ?>" data-width="100%" data-numposts="50" data-order-by="time"></div></td>
@@ -33,7 +51,6 @@
 	</tbody>
 </table>
 
-<p><cite><var>Facebook Forum Licensed Under GNU General Public License 3.0</var></cite></p>
 
 </body>
 </html>
