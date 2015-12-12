@@ -46,8 +46,8 @@
 	<thead>
 		<tr>
 			<th bgcolor="#275187" scope="col">
-			<h1><font color="white">Topic</font></h1>
-      <button onclick="alert('Hello world!')" type="button">新主題</button>
+			<h1><font color="white"><?php echo $subject ?></font></h1>
+      <button onclick="javascript:location.href=newpost.php" type="button">新主題</button>
 			</th>
 		</tr>
 	</thead>
