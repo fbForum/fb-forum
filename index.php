@@ -33,7 +33,7 @@
           die("Connection failed: " . $conn->connect_error);
       }
 			//Getting Posts from database by row
-      $sql = "SELECT id,author,subject FROM topic";
+      $sql = "SELECT id,author,subject FROM topic ORDER BY id DESC";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
