@@ -24,7 +24,8 @@
 				die('發貼失敗...Sorry... ' . mysql_error());
 		   }
 
-		echo "發貼成功！<a herf=http://reddithk.com >上一頁</a> ";
+		echo "發貼成功！";
+		echo "<meta http-equiv=\"refresh\" content=\"1\"; url=\"index.php\" />";
 
 		mysql_close($conn);
 
