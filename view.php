@@ -3,33 +3,31 @@
 
   $id = $_GET['id']; // Get the post id from URL attb "id"
 
-  $servername = "localhost";
-  $username = "username";
-  $password = "password";
-  $dbname = "dbname";
-
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  $con=mysqli_connect("localhost","username","password","dbname");
   // Check connection
-  if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-  }
+  if (mysqli_connect_errno())
+    {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
 
-  $sql = "SELECT * FROM 'topic' WHERE id = $id ";
-  $result = mysqli_query($conn, $sql);
+  $sql="SELECT author,subject,content FROM topic WHERE id = '$id'";
 
-  if (mysqli_num_rows($result) > 0) {
-      // output data of each row
-      while($row = mysqli_fetch_assoc($result)) {
-          $author = $row["author"];
-          $subject = $row["subject"];
-          $content = $row["content"];
+  if ($result=mysqli_query($con,$sql))
+    {
+    // Fetch one and one row
+    while ($row=mysqli_fetch_row($result))
+      {
+      //printf ("%s (%s)\n",$row[0],$row[1],$row[2]);
+      $author = $row[0];
+      $subject =  $row[1];
+      $content = $row[2];
+
       }
-  } else {
-      echo "0 results";
+    // Free result set
+    mysqli_free_result($result);
   }
 
-  mysqli_close($conn);
+  mysqli_close($con);
 ?>
 
 <html>
