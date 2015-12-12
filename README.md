@@ -1,7 +1,7 @@
 # fb-forum
 *****A truly facebook integrated forum.*****
 
-This php scripts is used to powerup http://www.reddithk.com
+For demo, see one of our user:  http://www.reddithk.com
 We proudly open sources for you to improved the forum usability and maybe new function!
 
 
@@ -15,3 +15,14 @@ The members  info and repliers are stored in facebook's servers as it use facebo
 
 The first post which also called "OP" is stored in local database to generate the topic lists.
 
+***v1.0 is OUT!!! We know it's still long way to improve, but this release really works.***
+
+>What's working?
+
+Topic listing, new post, view post.
+
+>What's not working?
+Captcha(No SPAM!), categories, HTML restriction.
+
+
+***Welcome to contribute your code***
