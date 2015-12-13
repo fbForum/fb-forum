@@ -10,14 +10,57 @@
 		<tr>
 			<th bgcolor="#275187" scope="col">
 			<h2><font color="white">吹水台</font></h2>
-			<form action="newpost.php">
-    <input type="submit" value="發表">
-		<select name="cate" size="1"><option value="BW">吹水台</option><option value="CA">時事台</option><option value="ET">娛樂台</option><option value="EP">創意台</option><option value="AU">成人台</option></select>
-</form>
+			<table border="0" cellpadding="0" cellspacing="0" height="35px" style="" width="60%">
+		<tbody>
+			<tr>
+				<td>
+					<form align="center" action="newpost.php">
+		    <input type="submit" value="發表">
+				</form>
+				<p style="text-align: center;">&nbsp;</p>
+				</td>
+				<td style="text-align: center;"><a href="index.php">吹水台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=CA">時事台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=MU">音樂台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=EP">創意台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=ED">飲食台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=ET">娛樂台</a></td>
+				<td style="text-align: center;"><a href="index.php?type=DC">攝影台</a></td>
+			</tr>
+		</tbody>
+	</table>
 			</th>
 		</tr>
 	</thead>
 	<tbody>
+		<tr>
+			<td>
+				<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:85%">
+					<tbody>
+						<tr>
+							<td>
+							<div style="font-family: HelveticaNeue; font-size: 12px;"><strong>香港熄燈討論區</strong>&nbsp;-&nbsp;<em>自由的二次創作討論區</em></div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">&nbsp;</div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;"><u><strong>點玩？</strong></u></div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">發表文章：<strong>唔駛登記</strong>，打個膠名、起個標題同內文就得。我們<strong>並無儲存</strong>任何個人資料和IP，並以SSL加密連線&thorn;，以保護二次創作者可以更自由發揮。</div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">&nbsp;</div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">回覆一樣簡單：只要你用緊facebook可即刻在底回覆，預設是<strong>不會</strong>貼到你的wall（除非你特登tick），注意回覆的文章是存在facebook的sever內。</div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">&nbsp;</div>
+
+							<div style="font-family: HelveticaNeue; font-size: 12px;">有問題？都係唔明？開post問啦。</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</td>
+	</tr>
 		<tr>
 			<td>
 				<?php

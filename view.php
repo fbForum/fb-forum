@@ -32,6 +32,7 @@
 
 <html>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta property="fb:app_id" content="{YOUR_APP_ID}" />
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
