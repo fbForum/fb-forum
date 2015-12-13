@@ -9,6 +9,8 @@ CREATE TABLE `topic` (
   `author` varchar(12) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `content` text NOT NULL,
+  `datetime` datetime NOT NULL,
+  `type` varchar(2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_id` (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
