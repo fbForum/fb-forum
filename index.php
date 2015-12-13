@@ -77,16 +77,52 @@
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
+			//Get Posts by type:
+			if ($_GET['type'] == BW ) {
+
+				$sql = "SELECT id,author,subject,datetime FROM topic ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == CA) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'CA' ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == ED) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'ED' ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == MU) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'MU' ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == EP) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'EP' ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == ET) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'ED' ORDER BY id DESC";
+
+			} elseif ($_GET['type'] == DC) {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic WHERE type = 'DC' ORDER BY id DESC";
+
+			} else {
+
+					$sql = "SELECT id,author,subject,datetime FROM topic ORDER BY id DESC";
+
+			}
+
+
 			//Getting Posts from database by row
-      $sql = "SELECT id,author,subject FROM topic ORDER BY id DESC";
+      //$sql = "SELECT id,author,subject FROM topic ORDER BY id DESC";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
 					//Generate table and headers
-          echo "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse; width: 100%;\" ><tr align=\"left\"><th bgcolor=\"#fcb416\">題目</th><th bgcolor=\"#fcb416\">發起人</th></tr>";
+          echo "<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse; width: 100%;\" ><tr align=\"left\"><th bgcolor=\"#fcb416\">題目</th><th bgcolor=\"#fcb416\">發起人</th><th bgcolor=\"#fcb416\">發表時間</th></tr>";
           // output data of each row
           while($row = $result->fetch_assoc()) {
-              echo "<tr><td><a href=view.php?id=".$row["id"].">".$row["subject"]."</a></td><td>".$row["author"]." </td></tr>";
+              echo "<tr><td><a href=view.php?id=".$row["id"].">".$row["subject"]."</a></td><td>".$row["author"]." </td><td>".$row["datetime"]."</td></tr>";
           }
           echo "</table>";
       } else {
