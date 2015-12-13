@@ -10,7 +10,7 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-  $sql="SELECT author,subject,content FROM topic WHERE id = '$id'";
+  $sql="SELECT author,subject,content,datetime FROM topic WHERE id = '$id'";
 
   if ($result=mysqli_query($con,$sql))
     {
@@ -21,6 +21,7 @@
       $author = $row[0];
       $subject =  $row[1];
       $content = $row[2];
+      $datetime = $row[3];
 
       }
     // Free result set
@@ -60,9 +61,21 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td> <p><?php echo $content ?></p>
+			<td>
 
-            <blockquote><?php echo $author ?></blockquote>
+        <table width = "100%" align="center" border="0" cellpadding="10" cellspacing="10">
+          <tbody>
+            <tr>
+              <td>
+              <p><?php echo $content; ?></p>
+
+              <blockquote>
+              <div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><?php echo $author; ?> <?php echo $datetime ?></div>
+              </blockquote>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
             <p>Topic Id : <?php echo $id ?></p>
       </td>
