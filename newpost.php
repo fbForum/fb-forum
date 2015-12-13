@@ -1,5 +1,6 @@
 
 <html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <head>
 	<title>發表新文章</title>
 	<style type="text/css">

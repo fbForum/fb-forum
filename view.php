@@ -31,6 +31,7 @@
 ?>
 
 <html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

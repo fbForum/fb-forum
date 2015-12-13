@@ -1,5 +1,7 @@
 <html>
-<title>吹水台 - Reddithk討論區</title>
+<title>吹水台 - 香港熄燈討論區</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
 <body>
 <div id="fb-root"></div>
 

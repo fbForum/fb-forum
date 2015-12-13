@@ -24,7 +24,7 @@
 				die('發貼失敗...Sorry... ' . mysql_error());
 		   }
 
-			 echo "<html><body><h3>發貼成功！</h3>";
+			 echo "<html><meta http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\"><body><h3>發貼成功！</h3>";
 			 echo "<form action=\"index.php\"> <input type=\"submit\" value=\"主頁\"></form></body></html>";
 
 		mysql_close($conn);
