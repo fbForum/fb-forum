@@ -18,14 +18,13 @@ The members  info and repliers are stored in facebook's servers as it use facebo
 
 The first post which also called "OP" is stored in local database to generate the topic lists.
 
-***v1.0 is OUT!!! We know it's still long way to improve, but this release really works.***
+***v2.0 is OUT!!! We know it's still long way to improve, but this release really works.***
 
 >What's working?
 
-Topic listing, new post, view post.
+* All function you expected in (http://m.hkgolden.com)
+* BBCode
+* SQL injection and XSS proof now working.
 
->What's not working?
-Captcha(No SPAM!), categories, HTML restriction.
+***Welcome to contribute your code and please fork me!***
 
-
-***Welcome to contribute your code***
