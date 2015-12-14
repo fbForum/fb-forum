@@ -1,5 +1,5 @@
 <?
-  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";  //Getting the URI (not URL) for the facebook comments location
+  $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";  //Getting the URI (not URL) for the facebook comments location
 
   $id = $_GET['id']; // Get the post id from URL attb "id"
 
@@ -10,19 +10,18 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-  $sql="SELECT author,subject,content,datetime FROM topic WHERE id = '$id'";
+    $sql="SELECT author,subject,content,datetime FROM topic WHERE id = '$id'";
 
-  if ($result=mysqli_query($con,$sql))
-    {
-    // Fetch one and one row
-    while ($row=mysqli_fetch_row($result))
+    if ($result=mysqli_query($con,$sql))
       {
-      //printf ("%s (%s)\n",$row[0],$row[1],$row[2]);
-      $author = $row[0];
-      $subject =  $row[1];
-      $content = $row[2];
-      $datetime = $row[3];
-
+      // Fetch one and one row
+      while ($row=mysqli_fetch_row($result))
+        {
+        //printf ("%s (%s)\n",$row[0],$row[1],$row[2]);
+        $author = $row[0];
+        $subject =  $row[1];
+        $content = $row[2];
+        $datetime = $row[3];
       }
     // Free result set
     mysqli_free_result($result);
@@ -32,8 +31,20 @@
 ?>
 
 <html>
+<title><?php echo $subject ?></title>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<meta property="fb:app_id" content="{YOUR_APP_ID}" />
+<meta property="fb:app_id" content="(APP ID HERE)" />
+<link rel="stylesheet" href="/jquery/jquery-ui.css">
+<script src="/jquery/jquery-1.10.2.js"></script>
+<script src="/jquery/jquery-ui.js"></script>
+<link rel="stylesheet" href="/jquery/tabstyle.css">
+<script>
+$(function() {
+  $( "#tabs" ).tabs();
+});
+</script>
+</head>
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -64,24 +75,50 @@
 			<td>
 
         <table width = "100%" align="center" border="0" cellpadding="10" cellspacing="10">
-          <tbody>
-            <tr>
-              <td>
-              <p><?php echo $content; ?></p>
+        	<tbody>
+        		<tr>
+        			<td>
+        			<p><?php echo $content; ?></p>
 
-              <blockquote>
-              <div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><?php echo $author; ?> <?php echo $datetime ?></div>
-              </blockquote>
-              </td>
-            </tr>
-          </tbody>
+        			<blockquote>
+        			<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><?php echo $author; ?>  <?php echo $datetime ?></div>
+        			</blockquote>
+        			</td>
+        		</tr>
+        	</tbody>
         </table>
 
-            <p>Topic Id : <?php echo $id ?></p>
+            <i>Topic Id : <?php echo $id; ?></i>
       </td>
 		</tr>
 		<tr>
-			<td><div class="fb-comments" data-href="<?php echo $actual_link ?>" data-width="100%" data-numposts="50" data-order-by="time"></div></td>
+			<td>
+         <div id="tabs">
+                <ul>
+                  <li><a href="#tabs-1">Facebook上回覆</a></li>
+                  <li><a href="#tabs-2">Google+ 上回覆</a></li>
+                </ul>
+                <div id="tabs-1">
+                  <div class="fb-comments" data-href="<?php echo $actual_link ?>" data-width="100%" data-numposts="50" data-order-by="time"></div>
+                </div>
+                <div id="tabs-2">
+
+                  <script src="https://apis.google.com/js/plusone.js"></script>
+                  <div id="comments"></div>
+                  <script>
+                  gapi.comments.render('comments', {
+                      href: '<?php echo $actual_link ?>',
+                      width = '95%',
+                      first_party_property: 'BLOGGER',
+                      view_type: 'FILTERED_POSTMOD'
+                  });
+                  </script>
+
+                </div>
+              </div>
+
+
+      </td>
 		</tr>
 	</tbody>
 </table>
