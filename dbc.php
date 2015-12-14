@@ -13,7 +13,12 @@
 			 $author = $_POST['author'];
 			 $subject = $_POST['topic'];
 			 $content = $_POST['content'];
-			 $type = $_POST['type'];
+			 $type = $_POST['type'];	
+
+			 //All HTML will be escaped. This is to prevent XSS attack.
+			 $author = htmlspecialchars($author, ENT_NOQUOTES);
+			 $subject = htmlspecialchars($subject, ENT_NOQUOTES);
+			 $content = htmlspecialchars($content, ENT_NOQUOTES);
 
 			 //Prevent SQL Injection, escape characters before running SQL query
 			 $author = mysql_real_escape_string($author);
