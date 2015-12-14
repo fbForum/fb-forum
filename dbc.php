@@ -15,6 +15,10 @@
 			 $content = $_POST['content'];
 			 $type = $_POST['type'];
 
+			 //Prevent SQL Injection, escape characters before running SQL query
+			 $author = mysql_real_escape_string($author);
+			 $subject = mysql_real_escape_string($subject);
+			 $content = mysql_real_escape_string($content);
 
 
 			$sql = "INSERT INTO topic ". "(author,subject,content,type,datetime) ". "VALUES('$author','$subject','$content','$type',NOW())";
