@@ -28,6 +28,14 @@
   }
 
   mysqli_close($con);
+
+  //JBBCode phaser process, the print out is at line 112
+  require_once "jbbc/Parser.php";
+
+  $parser = new JBBCode\Parser();
+  $parser->addCodeDefinitionSet(new JBBCode\DefaultCodeDefinitionSet());
+
+  $parser->parse(htmlentities($content));
 ?>
 
 <html>
@@ -78,7 +86,7 @@ $(function() {
         	<tbody>
         		<tr>
         			<td>
-        			<p><?php echo $content; ?></p>
+        			<p><?php print $parser->getAsHtml(); ?></p>
 
         			<blockquote>
         			<div style="background:#eee;border:1px solid #ccc;padding:5px 10px;"><?php echo $author; ?>  <?php echo $datetime ?></div>
