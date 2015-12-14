@@ -36,8 +36,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta property="fb:app_id" content="(APP ID HERE)" />
 <link rel="stylesheet" href="/jquery/jquery-ui.css">
-<script src="/jquery/jquery-1.10.2.js"></script>
-<script src="/jquery/jquery-ui.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="/jquery/tabstyle.css">
 <script>
 $(function() {
