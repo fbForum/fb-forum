@@ -1,9 +1,8 @@
 # fb-forum
 *****A truly facebook integrated forum.***** (Now with Google+, after v1.5)
 
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
-
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/fbForum/fb-forum.git)
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/fbForum/fb-forum.git)
 For demo, see one of our user:  https://hksickdone.com
 We proudly open sources for you to improved the forum usability and maybe new function!
 
