@@ -13,13 +13,19 @@ This is a php script which run a forum by using simple MariaDB instruction and i
 
 Thread OP is not required to register nor sign-in to keep anonymous, that's the point of this forum script, this may protect the thread starter and give them more motivation to talk.
 
-However those replies need to login your facebook or Google account. Since we use official embeded plugins so no user data are stored in the scripts. Repiles are default NOT posting to your wall unless you choose to do so.
+However those replies need to login your facebook or Google account. Unlike those comments system you see elsewhere, we use official embeded plugins so no user-data , even your reply medssage are stored in the scripts. Repiles are default NOT posting to your wall unless you choose to do so.
 
->Where will be the message , user information and others store?
 
-The members  info and repliers are stored in facebook's servers as it use facebook's social plugin. The script never read and user information. :)
+> What's different between fb-forum and m.hkgolden.com or hkgalden.com?
 
-The first post which also called "OP" is stored in local database to generate the topic lists.
+* Posting are signin-free, register-free. NO ISP email, no CAPTCHA needed. We use different appoach to protect robotic form fillers, check out the codes and see how, since it's opensource :)
+
+* We use facebook/Google+ as replies, we store NO user data. Keeping anonymous is the core-value. Also encourage whispering.
+
+* We are the only open-source forum compare to hkgalden and hkgolden. (Except Google/Facebook plugin) This is to support recreation(二次創作).
+* You can contribute to the code to improve the forum, hkgolden admin did that?
+
+
 
 ***v2.0 is OUT!!! We know it's still long way to improve, but this release really works.***
 
