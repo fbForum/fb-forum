@@ -62,12 +62,28 @@ class DefaultCodeDefinitionSet implements CodeDefinitionSet
         $builder = new CodeDefinitionBuilder('color', '<span style="color: {option}">{param}</span>');
         $builder->setUseOption(true)->setOptionValidator(new \JBBCode\validators\CssColorValidator());
         array_push($this->definitions, $builder->build());
+
+        /* quote tag */
+        $builder = new CodeDefinitionBuilder('quote', '<blockquote>{param}</blockquote>');
+        $builder->setUseOption(true)->setOptionValidator(new \JBBCode\validators\CssColorValidator());
+        array_push($this->definitions, $builder->build());
+
+        /* size tag */
+        $builder = new CodeDefinitionBuilder('font', '<font face="{option}">{param}</font>');
+        $builder->setUseOption(true)->setOptionValidator(new \JBBCode\validators\CssColorValidator());
+        array_push($this->definitions, $builder->build());
+
+        /* size tag */
+        $builder = new CodeDefinitionBuilder('size', '<font size="{option}">{param}</font>');
+        $builder->setUseOption(true)->setOptionValidator(new \JBBCode\validators\CssColorValidator());
+        array_push($this->definitions, $builder->build());
+
     }
 
     /**
      * Returns an array of the default code definitions.
      */
-    public function getCodeDefinitions() 
+    public function getCodeDefinitions()
     {
         return $this->definitions;
     }

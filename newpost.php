@@ -33,6 +33,7 @@
 					    // with SCEditor
 					    $("textarea").sceditor({
 					        plugins: "bbcode",
+									toolbar: "color|bold,italic,underline|quote|link,unlink|image|cut,copy,paste",
 						style: "/minified/jquery.sceditor.default.min.css"
 					    });
 					});
