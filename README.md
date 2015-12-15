@@ -11,6 +11,10 @@ We proudly open sources for you to improved the forum usability and maybe new fu
 
 This is a php script which run a forum by using simple MariaDB instruction and intergrate facebook's social plug-in.
 
+Thread OP is not required to register nor sign-in to keep anonymous, that's the point of this forum script, this may protect the thread starter and give them more motivation to talk.
+
+However those replies need to login your facebook or Google account. Since we use official embeded plugins so no user data are stored in the scripts. Repiles are default NOT posting to your wall unless you choose to do so.
+
 >Where will be the message , user information and others store?
 
 The members  info and repliers are stored in facebook's servers as it use facebook's social plugin. The script never read and user information. :)
