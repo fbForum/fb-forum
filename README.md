@@ -2,7 +2,6 @@
 *****A truly facebook integrated forum.***** (Now with Google+, after v1.5)
 
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/fbForum/fb-forum/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/fbForum/fb-forum.git)
 
 For demo, see one of our user:  https://hksickdone.com
 We proudly open sources for you to improved the forum usability and maybe new function!
@@ -27,4 +26,9 @@ The first post which also called "OP" is stored in local database to generate th
 * SQL injection and XSS proof now working.
 
 ***Welcome to contribute your code and please fork me!***
+
+**External libraries and plug-in we used**
+* jBBCode for the BBCode parser
+* SCEditor for the text editor
+* jQuery for some UI elements
 
