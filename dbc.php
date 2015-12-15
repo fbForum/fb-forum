@@ -13,7 +13,7 @@
 			 $author = $_POST['author'];
 			 $subject = $_POST['topic'];
 			 $content = $_POST['content'];
-			 $type = $_POST['type'];	
+			 $type = $_POST['type'];
 
 			 //All HTML will be escaped. This is to prevent XSS attack.
 			 $author = htmlspecialchars($author, ENT_NOQUOTES);
@@ -24,6 +24,18 @@
 			 $author = mysql_real_escape_string($author);
 			 $subject = mysql_real_escape_string($subject);
 			 $content = mysql_real_escape_string($content);
+
+			 //JBBCode phaser process, the print out is at line 112
+			 require_once "jbbc/Parser.php";
+
+			 $parser = new JBBCode\Parser();
+			 $parser->addCodeDefinitionSet(new JBBCode\DefaultCodeDefinitionSet());
+
+			 $parser->parse(htmlentities($content));
+
+			 $content = $parser->getAsHtml();
+			 
+			 $content = nl2br($content);
 
 
 			$sql = "INSERT INTO topic ". "(author,subject,content,type,datetime) ". "VALUES('$author','$subject','$content','$type',NOW())";
