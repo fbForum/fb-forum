@@ -30,5 +30,5 @@ The first post which also called "OP" is stored in local database to generate th
 **External libraries and plug-in we used**
 * jBBCode for the BBCode parser
 * SCEditor for the text editor
-* jQuery for some UI elements
+* jQueryUI for some UI elements, (Note : jQuery is included in this repo but actually we are using Google as CDN since it's a good practice to offload those common libraries, you might like to use M$'s CDN if you perfer, just change it in view.php and newpost.php.)
 
